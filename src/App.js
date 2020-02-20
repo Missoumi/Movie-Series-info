@@ -2,7 +2,7 @@ import React, { useRef } from "react";
 import NavBar from "./components/navbar";
 import Search from "./components/Search";
 import MoviesList from "./components/Movies-List";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import MovieDetail from "./components/MovieDetail";
 
 function App() {
