@@ -1,25 +1,32 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useRef } from "react";
+import NavBar from "./components/navbar";
+import Search from "./components/Search";
+import MoviesList from "./components/Movies-List";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import MovieDetail from "./components/MovieDetail";
 
 function App() {
+  const moviesListRef = useRef();
+  const HandleSearch = title => {
+    moviesListRef.current.get_movies(title);
+  };
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className="App">
+        <div className="bg-dark text-white">
+          <NavBar />
+        </div>
+        <div className="container">
+          <Switch>
+            <Route path="/:id" component={MovieDetail} />
+            <Route path="/">
+              <Search submit={HandleSearch} />
+              <MoviesList ref={moviesListRef} />
+            </Route>
+          </Switch>
+        </div>
+      </div>
+    </Router>
   );
 }
 
