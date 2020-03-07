@@ -11,7 +11,7 @@ const Search = ({submit}) => {
   return (
     <div className="mt-5 search px-4 py-5">
       <h1 className="text-center">
-        <img style={{ width: "45px" }} src={search_logo} alt="search logo" />{" "}
+        <img style={{ width: "45px" }} src={search_logo} alt="search logo" />
         Search for a movie ,TV series ..
       </h1>
       <div className="pt-4 text-center">
